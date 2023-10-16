@@ -5,13 +5,11 @@
 
 .container {
   max-width: 1300px;
-  margin: auto;
-
   margin-top: 50px;
+
   display: flex;
-  align-items: center;
   flex-wrap: wrap;
-  gap: 40px;
+  gap: 50px;
 }
 
 form {
@@ -39,6 +37,10 @@ input:focus{
   border-color: #9333FF;
 }
 
+input::placeholder {
+  color: #ffffff;
+}
+
 select {
   width: 100%;
   padding: 10px;
@@ -47,7 +49,7 @@ select {
   border-radius: 4px;
 
   font-size: 16px;
-  color: #ffffff6b;
+  color: #fff;
   background-color: #181818;
   cursor: pointer;
 }
@@ -135,8 +137,13 @@ img{
 }
 
 @media (max-width: 530px){
+  .container{
+    gap: 20px;
+  }
   .card-container{
+    margin-top: 100px;
     transform: scale(0.9);
+    width: 100%;
   }
   .card-left{
     width: 70%;
