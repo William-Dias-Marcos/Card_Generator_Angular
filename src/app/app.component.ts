@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 
 import { FormBuilder, Validators } from '@angular/forms';
 
@@ -11,6 +11,11 @@ import html2canvas from 'html2canvas';
 })
 export class AppComponent {
 
+  @ViewChild('card', { static: false }) card!: ElementRef;
+
+  selectedFile: File | null = null;
+  image: any;
+
   constructor(private formBuilder : FormBuilder) { }
 
   profileForm = this.formBuilder.group({
@@ -18,21 +23,42 @@ export class AppComponent {
     profession: ['', Validators.required],
     email: ['', [Validators.required, Validators.email]],
     phoneNumber: ['', [Validators.required, Validators.minLength(8)]],
+    color: [''],
+    backgroundColor: [''],
     address: this.formBuilder.group({
       city: ['', Validators.required], 
       state: ['', Validators.required]
     })
   });
 
-  submitForm(){
-    console.log(this.profileForm.value)
+  onFileSelected(event: Event) {
+    const inputElement = event.target as HTMLInputElement;
+    if (inputElement.files) {
+      this.selectedFile = inputElement.files[0];
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        this.image = (e.target as FileReader).result;
+      }
+      reader.readAsDataURL(this.selectedFile);
+    }
   }
 
-      // html2canvas().then(canvas => {
-      //   const downloadLink = document.createElement('a') as HTMLAnchorElement;
-      //   downloadLink.href = canvas.toDataURL('image/png');
-      //   downloadLink.download = 'minha-imagem.png';
-      //   downloadLink.click();
-      // });
+  captureScreen() {
+    console.log(this.profileForm.value)
+    
+    const elemento = this.card.nativeElement;
+
+    if (elemento) {
+      html2canvas(elemento).then((canvas) => {
+        const imagem = canvas.toDataURL('image/png');
+        const link = document.createElement('a');
+        link.href = imagem;
+        link.download = 'captura.png';
+        link.click();
+      });
+    } else {
+      console.error('Elemento não encontrado');
+    }
+  }
 
 }

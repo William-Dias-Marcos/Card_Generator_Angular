@@ -1,101 +1,109 @@
 <div class="container">
 
-    <form [formGroup]="profileForm"  (ngSubmit)="submitForm()">
-  
-      <label>* Nome:
-        <input type="text" formControlName="name"
-        [ngClass]="{'error': profileForm.get('name')?.errors && 
-          (profileForm.get('name')?.touched || 
-          profileForm.get('name')?.dirty ) }">
-      </label>
-  
-      <label>* Profissão:
-        <input type="text" formControlName="profession"
-        [ngClass]="{'error': profileForm.get('profession')?.errors && 
-          (profileForm.get('profession')?.touched || 
-          profileForm.get('profession')?.dirty ) }">
-      </label>
-  
-      <label>* Email: 
-        <input type="email" formControlName="email"
-        [ngClass]="{'error': profileForm.get('email')?.errors && 
-          (profileForm.get('email')?.touched || 
-          profileForm.get('email')?.dirty ) }">
-      </label>
-  
-      <label>* Telefone:
-        <input type="text" formControlName="phoneNumber" placeholder="(XX) XXXXX-XXXX"
-        [ngClass]="{'error': profileForm.get('phoneNumber')?.errors && 
-          (profileForm.get('phoneNumber')?.touched || 
-          profileForm.get('phoneNumber')?.dirty ) }"
-          >
-      </label>
-  
-      <div formGroupName="address">
-        <label>* Cidade:  
-          <input type="text" formControlName="city"
-          [ngClass]="{'error': profileForm.get('phoneNumber')?.errors && 
-          (profileForm.get('phoneNumber')?.touched || 
-          profileForm.get('phoneNumber')?.dirty ) }">
-      </label>
-  
-      <label>* Estado: <br>
-        <select formControlName="state">
-          <option value="AC">AC</option>
-          <option value="AL">AL</option>
-          <option value="AP">AP</option>
-          <option value="AM">AM</option>
-          <option value="BA">BA</option>
-          <option value="CE">CE</option>
-          <option value="DF">DF</option>
-          <option value="ES">ES</option>
-          <option value="GO">GO</option>
-          <option value="MA">MA</option>
-          <option value="MT">MT</option>
-          <option value="MS">MS</option>
-          <option value="MG">MG</option>
-          <option value="PA">PA</option>
-          <option value="PB">PB</option>
-          <option value="PR">PR</option>
-          <option value="PE">PE</option>
-          <option value="PI">PI</option>
-          <option value="RJ">RJ</option>
-          <option value="RN">RN</option>
-          <option value="RS">RS</option>
-          <option value="RO">RO</option>
-          <option value="RR">RR</option>
-          <option value="SC">SC</option>
-          <option value="SP">SP</option>
-          <option value="SE">SE</option>
-          <option value="TO">TO</option>
-        </select>
-      </label>
-      </div>
-      
-      <button [disabled]="!profileForm.valid">Gerar Cartão</button>
-    </form>
-  
-    <div class="card-container">
-  
-      <div class="card-left">
-        <div class="title">
-          <h2>William Dias Marcos</h2>
-          <h3>Desenvolveor Front-end</h3>
-        </div>
-        
-        <ul>
-          <li>william.diasmarcos@gmail.com</li>
-          <li>51 995456698</li>
-        </ul>
+
+  <div #card class="card-container" [ngStyle]="{'background-color': profileForm.get('backgroundColor')?.value, 'color': profileForm.get('color')?.value}">
     
-        <div class="local">
-          <p>Taquara, RS</p>
-        </div>
+    <div class="card-left">
+
+      <div class="title">
+        <h2>{{ profileForm.get('name')?.value }}</h2>
+        <h3>{{ profileForm.get('profession')?.value }}</h3>
       </div>
-      <div>
-        <img src="https://static.vecteezy.com/system/resources/previews/012/871/379/non_2x/dell-brand-icon-illustration-top-tech-company-logotype-free-png.png" alt="">
-  
+        
+      <ul>
+        <li>{{ profileForm.get('email')?.value }}</li>
+        <li>{{ profileForm.get('phoneNumber')?.value }}</li>
+      </ul>
+    
+      <div class="local">
+        <p>{{ profileForm.get('address.city')?.value }} {{ profileForm.get('address.state')?.value }}</p>
       </div>
-  
     </div>
+
+    <div>
+      <img [src]="image">
+    </div>
+    
+  </div>
+
+
+  <form [formGroup]="profileForm">
+  
+  <input type="text" formControlName="name" placeholder="Nome"
+   [ngClass]="{ 'error': profileForm.get('name')?.errors && profileForm.get('name')?.touched }">
+
+  <input type="text" formControlName="profession" placeholder="Profissão"
+    [ngClass]="{ 'error': profileForm.get('profession')?.errors && profileForm.get('profession')?.touched }">
+  
+  <input type="email" formControlName="email" placeholder="Email"
+   [ngClass]="{ 'error': profileForm.get('email')?.errors && profileForm.get('email')?.touched }"> 
+  
+  <input type="text" formControlName="phoneNumber" placeholder="Telefone"
+    [ngClass]="{ 'error': profileForm.get('phoneNumber')?.errors && profileForm.get('phoneNumber')?.touched }"> 
+  
+  <div formGroupName="address"> 
+    <input type="text" formControlName="city" placeholder="Cidade"
+    [ngClass]="{ 'error': profileForm.get('address.city')?.errors && profileForm.get('address.city')?.touched }">
+      
+    <select formControlName="state">
+      <option value="" disabled selected>Estado</option>
+      <option value="AC">AC</option>
+      <option value="AL">AL</option>
+      <option value="AP">AP</option>
+      <option value="AM">AM</option>
+      <option value="BA">BA</option>
+      <option value="CE">CE</option>
+      <option value="DF">DF</option>
+      <option value="ES">ES</option>
+      <option value="GO">GO</option>
+      <option value="MA">MA</option>
+      <option value="MT">MT</option>
+      <option value="MS">MS</option>
+      <option value="MG">MG</option>
+      <option value="PA">PA</option>
+      <option value="PB">PB</option>
+      <option value="PR">PR</option>
+      <option value="PE">PE</option>
+      <option value="PI">PI</option>
+      <option value="RJ">RJ</option>
+      <option value="RN">RN</option>
+      <option value="RS">RS</option>
+      <option value="RO">RO</option>
+      <option value="RR">RR</option>
+      <option value="SC">SC</option>
+      <option value="SP">SP</option>
+      <option value="SE">SE</option>
+      <option value="TO">TO</option>
+    </select>
+  </div>
+
+  <div class="butons">
+
+    <div class="image-upload">
+      <label for="uploadImage">
+          <img src="../assets/icons/imagem.png">
+      </label>  
+      <input id="uploadImage" type="file" name="foto" (change)="onFileSelected($event)" >
+    </div>
+
+    <div class="color-text">
+      <label for="colorText">
+          <img src="../assets/icons/pincel.png">
+      </label>  
+      <input id="colorText" type="color" formControlName="color">
+    </div>
+
+    <div class="color-text">
+      <label for="backgroundColor">
+          <img src="../assets/icons/balde.png">
+      </label>  
+      <input id="backgroundColor" type="color" formControlName="backgroundColor">
+    </div>
+  
+  </div>
+  
+  <button [disabled]="!profileForm.valid" (click)="captureScreen()">Baixar Cartão</button>  
+  
+  </form>
+ 
 </div>
