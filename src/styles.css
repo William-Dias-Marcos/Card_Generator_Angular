@@ -23,6 +23,7 @@ textarea:focus, input:focus, select:focus {
 
 @media (max-width: 530px){
   body{
-    background-color: #1e1e1e;;
+    background-color: rgb(65, 65, 65);
+    height: auto;
   }
 }
