@@ -1,27 +1,41 @@
-# CardGenerator
+<h1 align="center"> Card Generator </h1>
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.2.
+## 💻 Sobre o projeto
 
-## Development server
+🪪 Card Generator é uma página para fazer um Cartão de Visitas personalizado.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+---
 
-## Code scaffolding
+## ⚙️ Funcionalidades
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- [x] Permite fazer um cartão de visitas personalizado:
+- [x] Pode editar a cor da fonte, do fundo, adicionar imagem e fazer o download:
+- [x] Disponível para todos os dispositivos:
 
-## Build
+---
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## 📱 Layout da Aplicação
 
-## Running unit tests
+ <p text  align="center">
+<img img width= "700" src= "https://github.com/William-Dias-Marcos/Card_Generator_Angular/blob/main/to_readme/card.png"> 
+</p>
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+---
 
-## Running end-to-end tests
+## 🛠 Tecnologias
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+As seguintes ferramentas foram usadas na construção do projeto:
 
-## Further help
+- Angular
+- TypeScript
+- CSS
+- HTML
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+---
+
+## 👨🏼‍💻 Autor
+
+William Dias Marcos
+
+ <a href = "mailto:william.diasmarcos@gmail.com"><img src="https://img.shields.io/badge/-Gmail-%23333?style=for-the-badge&logo=gmail&logoColor=white"        target="_blank"></a>
+ <a href="https://www.linkedin.com/in/william-dias-marcos-25981a192" target="_blank"><img src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white" target="_blank"></a>
