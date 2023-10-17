@@ -4,6 +4,8 @@
 
 🪪 Card Generator é uma página para fazer um Cartão de Visitas personalizado.
 
+https://onlinecardgenerator.netlify.app/
+
 ---
 
 ## ⚙️ Funcionalidades
