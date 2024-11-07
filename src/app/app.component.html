@@ -12,7 +12,7 @@
         
       <ul>
         <li>{{ profileForm.get('email')?.value }}</li>
-        <li>{{ profileForm.get('phoneNumber')?.value }}</li>
+        <li>{{ profileForm.get('phoneNumber')?.value ?? '' | mask: '(99) 99999-9999' }}</li>
       </ul>
     
       <div class="local">
@@ -38,7 +38,7 @@
   <input type="email" formControlName="email" placeholder="Email"
    [ngClass]="{ 'error': profileForm.get('email')?.errors && profileForm.get('email')?.touched }"> 
   
-  <input type="text" formControlName="phoneNumber" placeholder="Telefone"
+  <input type="text" formControlName="phoneNumber" placeholder="Telefone" mask="(99) 99999-9999"
     [ngClass]="{ 'error': profileForm.get('phoneNumber')?.errors && profileForm.get('phoneNumber')?.touched }"> 
   
   <div formGroupName="address"> 

@@ -22,7 +22,7 @@ export class AppComponent {
     name: ['', Validators.required],
     profession: ['', Validators.required],
     email: ['', [Validators.required, Validators.email]],
-    phoneNumber: ['', [Validators.required, Validators.minLength(8)]],
+    phoneNumber: ['', [Validators.required, Validators.minLength(11)]],
     color: [''],
     backgroundColor: [''],
     address: this.formBuilder.group({
