@@ -60,10 +60,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "cardGenerator:build:production"
+              "buildTarget": "cardGenerator:build:production"
             },
             "development": {
-              "browserTarget": "cardGenerator:build:development"
+              "buildTarget": "cardGenerator:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -71,7 +71,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "cardGenerator:build"
+            "buildTarget": "cardGenerator:build"
           }
         },
         "test": {
